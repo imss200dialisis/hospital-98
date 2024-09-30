@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección de Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2e7d32;
+            margin-bottom: 2rem;
+        }
+        .options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        .option {
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Elija el hospital</h1>
+        <div class="options">
+            <button class="option" onclick="window.location.href='https://sites.google.com/view/hospital-98-imss-dialisis/inicio'">HGR 200</button>
+            <button class="option" onclick="window.location.href='https://sites.google.com/view/hospital-98-imss-dialisis/inicio'">HGZ 98</button>
+        </div>
+    </div>
+</body>
+</html>
