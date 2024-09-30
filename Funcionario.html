@@ -13,40 +13,61 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 20px;
         }
         .container {
             background-color: #ffffff;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 90%;
+            max-width: 600px;
         }
         h1 {
             color: #2e7d32;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .hospital-icon {
+            font-size: 50px;
+            color: #2e7d32;
+            margin-bottom: 1rem;
         }
         .options {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             margin-top: 2rem;
         }
         .option {
             background-color: #4caf50;
             color: white;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             border: none;
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            flex: 1;
+            margin: 0 0.5rem;
         }
         .option:hover {
             background-color: #45a049;
+            transform: translateY(-2px);
+        }
+        /* Estilo de los botones para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .options {
+                flex-direction: column;
+            }
+            .option {
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="hospital-icon">🩺</div>
         <h1>Elija el hospital</h1>
         <div class="options">
             <button class="option" onclick="window.location.href='https://sites.google.com/view/hospital-98-imss-dialisis/inicio'">HGR 200</button>
