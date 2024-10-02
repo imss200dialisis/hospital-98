@@ -79,10 +79,11 @@
             var curp = document.getElementById('curp').value;
             
             // Aquí puedes agregar validación de los campos si lo deseas
-document.getElementById('result').innerHTML = "Por favor, complete ambos campos.";
-            
-            // Redireccionar a la página del Hospital 98 IMSS Diálisis
-            window.location.href = 'Funcionario.html';
+if (matricula ==== '' || curp === ''){
+    document.getElementById('result').innerHTML = "Complete los campos necesitados.";
+}else{
+       window.location.href = 'Funcionario.html';
+}
         }
     </script>
 </body>
