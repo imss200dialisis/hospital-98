@@ -55,12 +55,10 @@
 <body>
     <header>
         <div class="container">
-            <img src="https://www.la-prensa.com.mx/metropoli/6pwtr8-imss-coacalco.gif/ALTERNATES/LANDSCAPE_960/imss-coacalco.gif" 
-                 alt="Hospital IMSS">
+            <img src="https://www.la-prensa.com.mx/metropoli/6pwtr8-imss-coacalco.gif/ALTERNATES/LANDSCAPE_960/imss-coacalco.gif" alt="Hospital IMSS">
             <div class="text">Hospital 98 IMSS Diálisis</div>
         </div>
     </header>
-
     <main>
         <h2>Inserte su Matrícula y su CURP</h2>
         <input type="text" id="matricula" placeholder="Matrícula">
@@ -68,21 +66,36 @@
         <button onclick="submitForm()">Registrar</button>
         <div id="result"></div>
     </main>
-
     <footer>
         <p>&copy; 2024 Hospital 98 IMSS Diálisis. Todos los derechos reservados.</p>
     </footer>
-
     <script>
         function submitForm() {
+            console.log("Función submitForm() iniciada");
             var matricula = document.getElementById('matricula').value;
             var curp = document.getElementById('curp').value;
+            var resultElement = document.getElementById('result');
             
-            // Aquí puedes agregar validación de los campos si lo deseas
-document.getElementById('result').innerHTML = "Por favor, complete ambos campos.";
+            console.log("Matrícula:", matricula);
+            console.log("CURP:", curp);
             
-            // Redireccionar a la página del Hospital 98 IMSS Diálisis
-            window.location.href = 'Funcionario.html';
+            if (matricula.trim() === '' || curp.trim() === '') {
+                console.log("Campos incompletos");
+                resultElement.innerHTML = "Por favor, complete ambos campos.";
+                resultElement.style.color = "red";
+            } else {
+                console.log("Campos completos, intentando redireccionar");
+                resultElement.innerHTML = "Redirigiendo...";
+                resultElement.style.color = "green";
+                
+                try {
+                    window.location.href = 'Funcionario.html';
+                } catch (error) {
+                    console.error("Error al redireccionar:", error);
+                    resultElement.innerHTML = "Error al redireccionar. Por favor, inténtelo de nuevo.";
+                    resultElement.style.color = "red";
+                }
+            }
         }
     </script>
 </body>
