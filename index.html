@@ -93,6 +93,8 @@
                     const data = await response.json();
                     const dbContent = JSON.parse(atob(data.content));
                     
+                    console.log("Contenido de db.json:", dbContent); // Verifica el contenido
+
                     if (dbContent.some(user => user.matricula === matricula && user.curp === curp)) {
                         console.log("Datos válidos, redirigiendo");
                         resultElement.innerHTML = "Datos válidos. Redirigiendo...";
