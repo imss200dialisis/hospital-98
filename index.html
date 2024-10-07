@@ -70,7 +70,7 @@
         <p>&copy; 2024 Hospital 98 IMSS Diálisis. Todos los derechos reservados.</p>
     </footer>
     <script>
-        function submitForm() {
+        async function submitForm() {
             console.log("Función submitForm() iniciada");
             var matricula = document.getElementById('matricula').value;
             var curp = document.getElementById('curp').value;
@@ -84,48 +84,34 @@
                 resultElement.innerHTML = "Por favor, complete ambos campos.";
                 resultElement.style.color = "red";
             } else {
-                console.log("Campos completos, intentando redireccionar");
-                resultElement.innerHTML = "Redirigiendo...";
-                resultElement.style.color = "green";
-                
+                console.log("Campos completos, validando datos");
+                resultElement.innerHTML = "Validando...";
+                resultElement.style.color = "blue";
+
                 try {
-                    window.location.href = 'Funcionario.html';
+                    const response = await fetch('https://raw.githubusercontent.com/imss200dialisis/imss200dialisis/hospital-98/main/db.json'); // Asegúrate de que esta URL sea correcta
+                    const data = await response.json();
+                    console.log(data); // Verifica la respuesta
+
+                    if (data.some(user => user.matricula === matricula && user.curp === curp)) {
+                        console.log("Datos válidos, redirigiendo");
+                        resultElement.innerHTML = "Datos válidos. Redirigiendo...";
+                        resultElement.style.color = "green";
+                        setTimeout(() => {
+                            window.location.href = 'Funcionario.html';
+                        }, 1000);
+                    } else {
+                        console.log("Datos no válidos");
+                        resultElement.innerHTML = "Matrícula o CURP no válidos.";
+                        resultElement.style.color = "red";
+                    }
                 } catch (error) {
-                    console.error("Error al redireccionar:", error);
-                    resultElement.innerHTML = "Error al redireccionar. Por favor, inténtelo de nuevo.";
+                    console.error("Error al validar datos:", error);
+                    resultElement.innerHTML = "Error al validar datos. Por favor, inténtelo de nuevo.";
                     resultElement.style.color = "red";
                 }
             }
         }
-        
-    </script>
-     <script>
-        async function submitForm() {
-    // ...
-    try {
-        const response = await fetch('https://raw.githubusercontent.com/username/repo/main/db.json');
-        const data = await response.json(); // Asegúrate de que esto sea correcto
-        console.log(data); // Verifica la respuesta
-
-        if (data.some(user => user.matricula === matricula && user.curp === curp)) {
-            console.log("Datos válidos, redirigiendo");
-            resultElement.innerHTML = "Datos válidos. Redirigiendo...";
-            resultElement.style.color = "green";
-            setTimeout(() => {
-                window.location.href = 'Funcionario.html';
-            }, 1000);
-        } else {
-            console.log("Datos no válidos");
-            resultElement.innerHTML = "Matrícula o CURP no válidos.";
-            resultElement.style.color = "red";
-        }
-    } catch (error) {
-        console.error("Error al validar datos:", error);
-        resultElement.innerHTML = "Error al validar datos. Por favor, inténtelo de nuevo.";
-        resultElement.style.color = "red";
-    }
-}
     </script>
 </body>
 </html>
-
