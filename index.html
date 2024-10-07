@@ -69,6 +69,7 @@
     <footer>
         <p>&copy; 2024 Hospital 98 IMSS Diálisis. Todos los derechos reservados.</p>
     </footer>
+      <!-- ... (el resto del body permanece igual) ... -->
     <script>
         async function submitForm() {
             console.log("Función submitForm() iniciada");
@@ -87,13 +88,13 @@
                 console.log("Campos completos, validando datos");
                 resultElement.innerHTML = "Validando...";
                 resultElement.style.color = "blue";
-
+                
                 try {
-                    const response = await fetch('https://raw.githubusercontent.com/imss200dialisis/imss200dialisis/hospital-98/main/db.json'); // Asegúrate de que esta URL sea correcta
+                    const response = await fetch('https://api.github.com/repos/[imss200dialisis]/[imss200dialisis/hospital-98]/contents/db.json');
                     const data = await response.json();
-                    console.log(data); // Verifica la respuesta
-
-                    if (data.some(user => user.matricula === matricula && user.curp === curp)) {
+                    const dbContent = JSON.parse(atob(data.content));
+                    
+                    if (dbContent.some(user => user.matricula === matricula && user.curp === curp)) {
                         console.log("Datos válidos, redirigiendo");
                         resultElement.innerHTML = "Datos válidos. Redirigiendo...";
                         resultElement.style.color = "green";
