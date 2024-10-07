@@ -101,49 +101,31 @@
     </script>
      <script>
         async function submitForm() {
-            console.log("Función submitForm() iniciada");
-            var matricula = document.getElementById('matricula').value;
-            var curp = document.getElementById('curp').value;
-            var resultElement = document.getElementById('result');
-            
-            console.log("Matrícula:", matricula);
-            console.log("CURP:", curp);
-            
-            if (matricula.trim() === '' || curp.trim() === '') {
-                console.log("Campos incompletos");
-                resultElement.innerHTML = "Por favor, complete ambos campos.";
-                resultElement.style.color = "red";
-            } else {
-                console.log("Campos completos, validando datos");
-                resultElement.innerHTML = "Validando...";
-                resultElement.style.color = "blue";
-                
-                try {
-                    const response = await fetch('https://api.github.com/repos/[imss200dialisis]/[imss200dialisis/hospital-98]/contents/db.json');
-                    const data = await response.json();
-                    const dbContent = JSON.parse(atob(data.content));
-                    
-                    if (dbContent.some(user => user.matricula === matricula && user.curp === curp)) {
-                        console.log("Datos válidos, redirigiendo");
-                        resultElement.innerHTML = "Datos válidos. Redirigiendo...";
-                        resultElement.style.color = "green";
-                        setTimeout(() => {
-                            window.location.href = 'Funcionario.html';
-                        }, 1000);
-                    } else {
-                        console.log("Datos no válidos");
-                        resultElement.innerHTML = "Matrícula o CURP no válidos.";
-                        resultElement.style.color = "red";
-                    }
-                } catch (error) {
-                    console.error("Error al validar datos:", error);
-                    resultElement.innerHTML = "Error al validar datos. Por favor, inténtelo de nuevo.";
-                    resultElement.style.color = "red";
-                }
-            }
+    // ...
+    try {
+        const response = await fetch('https://raw.githubusercontent.com/username/repo/main/db.json');
+        const data = await response.json(); // Asegúrate de que esto sea correcto
+        console.log(data); // Verifica la respuesta
+
+        if (data.some(user => user.matricula === matricula && user.curp === curp)) {
+            console.log("Datos válidos, redirigiendo");
+            resultElement.innerHTML = "Datos válidos. Redirigiendo...";
+            resultElement.style.color = "green";
+            setTimeout(() => {
+                window.location.href = 'Funcionario.html';
+            }, 1000);
+        } else {
+            console.log("Datos no válidos");
+            resultElement.innerHTML = "Matrícula o CURP no válidos.";
+            resultElement.style.color = "red";
         }
+    } catch (error) {
+        console.error("Error al validar datos:", error);
+        resultElement.innerHTML = "Error al validar datos. Por favor, inténtelo de nuevo.";
+        resultElement.style.color = "red";
+    }
+}
     </script>
 </body>
 </html>
-</body>
-</html>
+
