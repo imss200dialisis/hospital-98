@@ -23,6 +23,10 @@
             </ul>
         </nav>
     </header>
+<!-- Imagen del hospital desde una URL -->
+    <section class="hospital-image">
+        <img src="https://live.staticflickr.com/7062/6858272623_eb5da7e152_b.jpg">
+    </section>
 
     <!-- Sección de servicios -->
     <section class="services">
