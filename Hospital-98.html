@@ -12,7 +12,15 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-color: #f5f5f5;
+            color: 333;
+        }header{
+            background-color: 004d99;
+            position: relative;
         }
+
+
+        
         .container {
             text-align: center;
             position: relative;
@@ -24,6 +32,7 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
+            border-bottom: 5px solid #fff;
         }
         .container .text {
             position: absolute;
@@ -42,21 +51,47 @@
         }
         input, button {
             margin: 10px;
-            padding: 8px;
+            padding: 12px 20px;
+            border: 1xp solid #ccc;
+            border-radius: 5xp;
+            front-size: 16xp;
+            transition: boder-color 0.3s, box-shadow 0.3;
         }
+        input:focus, button:focus{
+            border-color: #004d99;
+            box-shadow: 0 0 5px rgba(0, 77, 153, 0.5);
+        }
+            
+
+        button {
+            background-color: #004d99;
+            color: white;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #003366;
+        }
+
         footer {
             background-color: #f0f0f0;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             margin-top: auto;
+            font-size: 14px;
+            color: #666;
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjTTp8k0v2inIGgzatd6k_yMPa0IjHoKZAVUn8T4QxmGiDS-y9YyUwNiWP0jDjQp_qn18&usqp=CAU" alt="Hospital IMSS">
-            <div class="text">Hospital General de Zona No. 98</div>
-        </div>
-    </header>
-      </html>
+<main>
+        <h1>Acceso a Registros de Pacientes de Diálisis</h1>
+        <form>
+            <input type="text" placeholder="Ingrese el CURP del paciente" required>
+            <button type="submit">Acceder</button>
+        </form>
+    </main>
+    <footer>
+        &copy; 2024 Hospital General de Zona No. 98. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
