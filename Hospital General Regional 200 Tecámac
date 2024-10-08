@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital General</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="hospital-logo.png" alt="Logo del Hospital">
+            <h1>Hospital General</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Médicos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de servicios -->
+    <section class="services">
+        <h2>Nuestros Servicios</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="cardiology.png" alt="Cardiología">
+                <h3>Cardiología</h3>
+                <p>Expertos en el tratamiento de enfermedades del corazón.</p>
+            </div>
+            <div class="service-card">
+                <img src="pediatrics.png" alt="Pediatría">
+                <h3>Pediatría</h3>
+                <p>Cuidados especializados para niños y adolescentes.</p>
+            </div>
+            <div class="service-card">
+                <img src="emergency.png" alt="Emergencias">
+                <h3>Emergencias</h3>
+                <p>Atención inmediata 24/7 en situaciones críticas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Hospital General. Todos los derechos reservados.</p>
+        <p>Teléfono: +123 456 789 | Dirección: Calle Salud, 123, Ciudad</p>
+    </footer>
+</body>
+</html>
